@@ -1,0 +1,14 @@
+:root {
+    --background-color: #FDF0D5;
+    --primary-color: #003049;
+    --secondary-color: #669BBC;
+    --destructive-color: #780000;
+    --destructive-color-hover: #C1121F;
+}
+.gamepy-app-body{
+    background-color: var(--background-color);
+}
+
+.gamepy-app-header {
+    background-color: #F5F5F5;
+}
