@@ -6,4 +6,4 @@ GEMINI_HEADERS = {'Content-Type': 'application/json',
                   'response_mime_type': 'application/json'}
 
 
-REQUEST_CONFIG = '{"contents":[{"parts":[{"text":"Crie subtarefas gamificadas de até 80 caracteres para arrumar um quarto ."}]}],"generationConfig":{"responseMimeType":"application/json","responseSchema":{"type":"ARRAY","items":{"type":"OBJECT","properties":{"Objective":{"type":"STRING"}}}}}}'
+REQUEST_CONFIG = '{"contents":[{"parts":[{"inline_data":{"mime_type":"image/*","data":"{$REPLACE_BASE64}"}},{"text":"Crie subtarefas gamificadas de até 80 caracteres usando como base a imagem anexada ."}]}],"generationConfig":{"responseMimeType":"application/json","responseSchema":{"type":"ARRAY","items":{"type":"OBJECT","properties":{"Objective":{"type":"STRING"}}}}}}'
