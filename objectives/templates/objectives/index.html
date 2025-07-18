@@ -5,6 +5,7 @@
 <form method="POST" action="/integrations/" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="file" id="picture" name="picture" accept="image/*" capture="camera">
+    <input type="text" id="helper_text" name="helper_text">
     <input type="submit">
 </form>
 {% endblock %}

@@ -1,4 +1,9 @@
 import os
+from pathlib import Path
+
+file=open(os.path.join(Path(__file__).resolve().parent, 'prompt.json'), 'r')
+file_content = file.read()
+file.close()
 
 GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'
 GEMINI_HEADERS = {'Content-Type': 'application/json',
@@ -6,4 +11,4 @@ GEMINI_HEADERS = {'Content-Type': 'application/json',
                   'response_mime_type': 'application/json'}
 
 
-REQUEST_CONFIG = '{"contents":[{"parts":[{"inline_data":{"mime_type":"image/*","data":"{$REPLACE_BASE64}"}},{"text":"Crie subtarefas gamificadas de até 80 caracteres usando como base a imagem anexada ."}]}],"generationConfig":{"responseMimeType":"application/json","responseSchema":{"type":"ARRAY","items":{"type":"OBJECT","properties":{"Objective":{"type":"STRING"}}}}}}'
+REQUEST_CONFIG = file_content
