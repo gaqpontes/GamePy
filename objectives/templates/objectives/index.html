@@ -2,10 +2,20 @@
 {% block title %}Objectives Index{% endblock %}
 {% block content %}
 <h1>Objectives Index</h1>
-<form method="POST" action="/integrations/" enctype="multipart/form-data">
+<form id='activity-form' method="POST" action="/integrations/" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="file" id="picture" name="picture" accept="image/*" capture="camera">
     <input type="text" id="helper_text" name="helper_text">
-    <input type="submit">
+    <input type="submit" onclick="handleCreate(this,event)"">
 </form>
+<button onclick="handleButton(this,event)">Test this</button>
+{% for objective in objectives %}
+    <p>
+        {{objective.title}} - 
+        {{objective.completed}} - 
+        {{objective.created_at}} - 
+        {{objective.updated_at}} -
+    </p>
+{% endfor %}
+
 {% endblock %}

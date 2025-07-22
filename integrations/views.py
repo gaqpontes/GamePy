@@ -19,7 +19,6 @@ def index(request):
     if(request.method == "POST"):
         
         form = UploadFileForm(request.POST, request.FILES);
-        
         if(form.is_valid()):
             
             picture = request.FILES["picture"];
