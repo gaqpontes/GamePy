@@ -4,6 +4,7 @@
     --secondary-color: #669BBC;
     --destructive-color: #780000;
     --destructive-color-hover: #C1121F;
+    --neutral-white: #FAFAFA;
 }
 .gamepy-app-body{
     background-color: var(--background-color);
@@ -11,4 +12,46 @@
 
 .gamepy-app-header {
     background-color: #F5F5F5;
+}
+
+.gamepy-app-spinner {
+    visibility: hidden;
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(250, 250, 250, 0.6);;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.gamepy-checkbox-transform {
+    transform: scale(2);
+}
+.gamepy-objective-item {
+    background-color: var(--neutral-white);
+    min-height: 100px;
+}
+.gamepy-objective-item:hover {
+    background-color: var(--secondary-color);
+}
+
+@media (min-width: 769px) {
+    .gamepy-objective-item {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .gamepy-objective-item {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .gamepy-objective-item {
+        font-size: 1rem;
+    }
 }

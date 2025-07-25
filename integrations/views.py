@@ -24,7 +24,9 @@ def index(request):
             picture = request.FILES["picture"];
             encoded_picture = base64.b64encode(picture.read()).decode("ASCII")
             final_request = REQUEST_CONFIG.replace('{$REPLACE_BASE64}', encoded_picture).replace('{$REPLACE_TEXT}', form.cleaned_data['helper_text'])
-            response = requests.post(GEMINI_URL, headers=GEMINI_HEADERS, data=final_request).text
+            raw_response = requests.post(GEMINI_URL, headers=GEMINI_HEADERS, data=final_request)
+            raw_response.encoding = 'utf-8'
+            response = raw_response.text
             response_parts = json.loads(json.loads(response)['candidates'][0]['content']['parts'][0]['text'])
             objective_list = []
             

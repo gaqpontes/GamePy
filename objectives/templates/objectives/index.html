@@ -1,21 +1,36 @@
 {% extends "GamePyApp/base_html.html" %}
 {% block title %}Objectives Index{% endblock %}
 {% block content %}
-<h1>Objectives Index</h1>
 <form id='activity-form' method="POST" action="/integrations/" enctype="multipart/form-data">
     {% csrf_token %}
-    <input type="file" id="picture" name="picture" accept="image/*" capture="camera">
+    <input class="d-none" type="file" id="picture" name="picture" accept="image/*" capture="camera">
+    <label for="picture">
+        <div style="width: 100px;height: 100px;background-color: red;"></div>
+    </label>
     <input type="text" id="helper_text" name="helper_text">
     <input type="submit" onclick="handleCreate(this,event)"">
 </form>
-<button onclick="handleButton(this,event)">Test this</button>
-{% for objective in objectives %}
-    <p>
-        {{objective.title}} - 
-        {{objective.completed}} - 
-        {{objective.created_at}} - 
-        {{objective.updated_at}} -
-    </p>
-{% endfor %}
+<div class=" row justify-content-around">
+    {% for objective in objectives %}
 
-{% endblock %}
+    <div class="gamepy-objective-item col-12 col-md-5 col-lg-3 row py-3 mb-2 mx-1 border border-2 rounded shadow-sm">
+
+        <div class="col-3 col-md-2 text-center align-content-center">
+            <input class="gamepy-checkbox-transform" type="checkbox" id="objective-{{ objective.uuid }}"
+                name="objective-{{ objective.uuid }}" data-uuid="{{objective.uuid}}"
+                onchange="handleCheckbox(this, event)" {% if objective.completed %}checked{% endif %}>
+        </div>
+
+        <div class="col-9 col-md-10 align-content-center">
+
+            <label for="objective-{{ objective.uuid }}">
+                {{ objective.title }} - {{objective.points}}
+            </label>
+
+        </div>
+
+    </div>
+    {% endfor %}
+    </div>
+
+    {% endblock %}
