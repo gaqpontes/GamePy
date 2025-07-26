@@ -1,10 +1,23 @@
 :root {
-    --background-color: #FDF0D5;
+    --background-color: #282A36;
+    --foreground-color: #F8F8F2;
+    --current-color: #44475A;
+    --comment-color: #6272A4;
+
     --primary-color: #003049;
     --secondary-color: #669BBC;
     --destructive-color: #780000;
     --destructive-color-hover: #C1121F;
     --neutral-white: #FAFAFA;
+}
+
+body{
+    color: var(--foreground-color) !important;
+    user-select: none;
+}
+
+label, input{
+    cursor: pointer;
 }
 .gamepy-app-body{
     background-color: var(--background-color);
@@ -31,11 +44,13 @@
     transform: scale(2);
 }
 .gamepy-objective-item {
-    background-color: var(--neutral-white);
+    background-color: var(--current-color);
     min-height: 100px;
 }
 .gamepy-objective-item:hover {
-    background-color: var(--secondary-color);
+    cursor: pointer; 
+    background-color: var(--comment-color);
+    transition: all .4s ease;
 }
 
 @media (min-width: 769px) {

@@ -36,6 +36,7 @@ function handleCreate(element, event){
     .then(data => {
         console.log('Success:', data);
         form.reset();
+        window.location.reload();
     })
     .catch((error) => {
         console.error('Error:', error);
